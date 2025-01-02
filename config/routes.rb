@@ -19,5 +19,13 @@ Rails.application.routes.draw do
   get "profile", to: "profile#edit"
   patch "profile", to: "profile#update"
 
+  # reset password
+  get "password/reset", to: "password_reset#new"
+  post "password/reset", to: "password_reset#create"
+
+  # edit reset password
+  get "password/reset/edit", to: "password_reset#edit"
+  patch "password/reset/edit", to: "password_reset#update"
+
   root to: "main#index"
 end
