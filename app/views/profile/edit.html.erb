@@ -1,0 +1,34 @@
+<div class="d-flex flex-column justify-content-center my-5">
+  <h1 class="mx-auto mb-4">My Profile</h1>
+
+  <%= form_with model: Current.user, class: "d-flex flex-column align-items-center", url: profile_path do |form| %>
+    <% if form.object.errors.any? %>
+      <div class="alert alert-danger">
+        <% form.object.errors.full_messages.each do |message| %>
+          <div>
+            <%= message %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="mb-3">
+      <%= form.label :email, class: "form-label d-block" %>
+      <%= form.text_field :email, placeholder: Current.user.email, disabled: true %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :old_password, class: "form-label d-block" %>
+      <%= form.password_field :old_password, placeholder: "enter your old password" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :password, class: "form-label d-block" %>
+      <%= form.password_field :password, placeholder: "enter new password" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :password_confirmation, class: "form-label d-block" %>
+      <%= form.password_field :password_confirmation, placeholder: "confirm new password" %>
+    </div>
+    <div class="mb-3">
+      <%= form.submit "Update Password", class: "btn btn-primary"%>
+    </div>
+  <% end %>
+</div>
