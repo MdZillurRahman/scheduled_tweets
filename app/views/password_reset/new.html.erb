@@ -1,0 +1,13 @@
+<div class="d-flex flex-column justify-content-center my-5">
+  <h1 class="mx-auto">Reset Password</h1>
+
+  <%= form_with class: "d-flex flex-column align-items-center", url: password_reset_path do |form| %>
+    <div class="mb-3">
+      <%= form.label :email, class: "form-label d-block" %>
+      <%= form.text_field :email, placeholder: "john@example.com" %>
+    </div>
+    <div class="mb-3">
+      <%= form.submit "Reset Password", class: "btn btn-primary"%>
+    </div>
+  <% end %>
+</div>
