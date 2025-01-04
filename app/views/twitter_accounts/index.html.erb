@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-between align-items-center">
+  <h1>
+    Twitter Accounts
+  </h1>
+  <%
+=begin%>
+ omniAuth doesn't support link_to for a post method, need to use button_to for that 
+<%
+=end%>
+  <%= button_to "Connect Twitter", "/auth/twitter", method: :post, class: "btn btn-primary mx-auto" %>
+</div>
+
+<% @twitter_accounts.each do |twitter_account| %>
+  <div class="d-flex align-items-center mb-4">
+    <div class="me-4">
+      <%= image_tag twitter_account.image, class: "rounded-circle" %>
+      <%= link_to "#{twitter_account.username}", "https://twitter.com/#{twitter_account.username}", target: :_blank %>
+    </div>
+
+    <%= button_to "Disconnect", twitter_account, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+  </div>
+<% end %>
